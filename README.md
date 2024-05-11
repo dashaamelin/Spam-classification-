@@ -37,15 +37,10 @@ data
 Набор данных для классификации сообщений. Датасет состоит из 5574 наблюдений - сообщений. Данные размечены на 2 категории - спам-сообщения('1') и не спам('0'). Этот датасет хорошо подходит для бинарной классификации текстов.
 
 #Выведем общую информацию по данным в датасете:
-
-```data.info()
-
-data.describe()
-
-data.isnull().sum()
-
-data.duplicated().sum()
-```
+```data.info()```
+```data.describe()```
+```data.isnull().sum()```
+```data.duplicated().sum()```
 
 Все ячейки в датасете являеются ненулевыми значениями. Однако в данных присутствуют дубликаты. В дальнейшем их наличие может привести к переобучению модели или влиять на метрики, поэтому целесоообразно их удалить.
 
@@ -55,6 +50,7 @@ data.duplicated().sum()
 
 ```print(data['label'].value_counts())
 ```
+
 ```spam_count = sum(data.label==True)
 non_spam_count = len(data) - spam_count
 total_emails = data.shape[0]
@@ -121,12 +117,10 @@ Y = data['label']
 ```
 # Построение моделей классификации
 
-Разобъём выборку на тестовую и обучающую выборки
+Разобъём выборку на тестовую и обучающую выборки:
 
-```X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2)
-```
+```X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2) ```
 Построим 7 моделей классификации:    
-
 
 *   Naive Bayes 
 *   DecisionTreeClassifier
